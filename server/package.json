@@ -1,0 +1,41 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev src/index.ts",
+    "convert": "ts-node-dev src/convertToJSON.ts",
+    "data:import": "concurrently \"npm run convert\" \"ts-node-dev src/seeder.ts\" ",
+    "test": "jest --no-cache"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./src/test/setup.ts"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.2.9",
+    "node-fetch": "^2.6.7",
+    "ts-node-dev": "^1.1.8"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node-fetch": "^2.6.1",
+    "@types/supertest": "^2.0.12",
+    "jest": "^27.5.1",
+    "mongodb-memory-server": "^8.4.2",
+    "supertest": "^6.2.2",
+    "ts-jest": "^27.1.4"
+  }
+}
